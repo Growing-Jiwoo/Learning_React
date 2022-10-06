@@ -27,7 +27,7 @@ function App() {
       </div>
 
       <div className='list'>
-        <h4>글 제목, {제목1[2]} </h4>
+        <h4>글 제목,123 {제목1[2]} </h4>
         <p>2월 17일 발행</p>
       </div>
     </div>
