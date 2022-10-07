@@ -1,4 +1,7 @@
 # 리액트 기초 다지기
 
 ## day1
-환경 셋팅, JSX 기초 학습, usestate, 변수 사용법
+Windows 데스크탑 환경 셋팅, JSX 기초 학습, usestate, 변수 사용법
+
+## day2,3
+Mac 환경 셋팅, useState 사용 이유에 대한 학습
