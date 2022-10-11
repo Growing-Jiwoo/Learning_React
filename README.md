@@ -5,3 +5,7 @@ Windows 데스크탑 환경 셋팅, JSX 기초 학습, usestate, 변수 사용�
 
 ## day2,3
 Mac 환경 셋팅, useState 사용 이유에 대한 학습
+
+## day4
+array / object의 useState 사용 방법 학습
+Component 기초 학습
