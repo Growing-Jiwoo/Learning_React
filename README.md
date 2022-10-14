@@ -13,5 +13,5 @@ Component 학습
 ## day5
 Dynamic UI 학습, map() 학습
 
-## day5
+## day6
 props() 학습
