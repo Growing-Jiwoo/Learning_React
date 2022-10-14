@@ -1,33 +1,9 @@
-// import './App.css';
-// import State from "./components/State";
-
-// function App() {
-
-//   return (
-//     <div>
-//       <State />
-//     </div>
-//   );
-
-// }
-
-// export default App;
-
 /* eslint-disable*/
 
-import { Modal } from '@mui/material';
 import { useState } from 'react';
 import './App.css';
 
-function ModalUI() {
-  return (
-    <div className='modal'>
-      <h4>제목</h4>
-      <p>날짜</p>
-      <p>상세내용</p>
-    </div>
-  )
-}
+
 
 function App() {
 
@@ -38,6 +14,7 @@ function App() {
 
   let [like, setlike] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
+  let [putindex, setputIndex] = useState(0)
 
   function likeBtn(i) {
     let copy = [...like];
@@ -61,7 +38,8 @@ function App() {
     제목1변경(array_sort)
   }
 
-  function modalViewControl() {
+  function modalViewControl(index) {
+    setputIndex(index)
     if (modal == true) {
       setModal(false)
     }
@@ -100,8 +78,8 @@ function App() {
         제목1.map(function (value, index) {
           return (
             <div className='list' key={index}>
-              <h4 onClick={modalViewControl}>{value}
-                <span onClick={() => {likeBtn(index)}}> / 좋아요 👍</span> {like[index]}
+              <h4 onClick={() => modalViewControl(index)}>{value}
+                <span onClick={() => { likeBtn(index) }}> / 좋아요 👍</span> {like[index]}
                 <p>2월 17일 발행</p>
               </h4>
             </div>
@@ -110,7 +88,7 @@ function App() {
       }
 
       {
-        modal == true ? <ModalUI /> : null
+        modal == true ? <ModalUI title_rename={제목1변경} title={제목1[putindex]} color={'skyblue'} modal_title={제목1} content="HI" /> : null
       }
 
     </div>
@@ -118,5 +96,15 @@ function App() {
 
 }
 
+function ModalUI(props) {
+  return (
+    <div className='modal' style={{ background: props.color }}>
+      <h4>{props.title}</h4>
+      <p>{props.content}</p>
+      <p>상세내용</p>
+      <button onClick={() => props.title_rename(['수정된 맛있는 우동', '수정된 맛없는 우동', '수정된 나쁘지않은 우동'])}>글 수정 버튼</button>
+    </div>
+  )
+}
 
 export default App;
