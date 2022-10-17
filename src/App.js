@@ -13,12 +13,15 @@ function App() {
   let [logo, setlogo] = useState('React Blog');
 
   let [like, setlike] = useState([0, 0, 0]);
+
   let [modal, setModal] = useState(false);
   let [putindex, setputIndex] = useState(0)
+  let [inputvalue, setInputValue] = useState('')
 
   function likeBtn(i) {
     let copy = [...like];
     copy[i] = like[i] + 1;
+    console.log(copy)
     setlike(copy);
   }
 
@@ -46,6 +49,22 @@ function App() {
     else {
       setModal(true)
     }
+  }
+
+  function createContent(input) {
+    let add_array = [...제목1]
+    add_array.push(input)
+    제목1변경(add_array)
+
+    let copy = [...like];
+    copy.push(0)
+    setlike(copy);
+  }
+
+  function deleteContent(value) {
+    let delete_array = [...제목1]
+    let filter_array = delete_array.filter((element) => element !== value);
+    제목1변경(filter_array)
   }
 
   return (
@@ -79,7 +98,8 @@ function App() {
           return (
             <div className='list' key={index}>
               <h4 onClick={() => modalViewControl(index)}>{value}
-                <span onClick={() => { likeBtn(index) }}> / 좋아요 👍</span> {like[index]}
+                <span onClick={(e) => { e.stopPropagation(); likeBtn(index) }}> / 좋아요 👍</span> {like[index]}
+                <button onClick={(e) => { e.stopPropagation(); deleteContent(value) }}> 글 삭제 하기</button>
                 <p>2월 17일 발행</p>
               </h4>
             </div>
@@ -87,13 +107,14 @@ function App() {
         })
       }
 
+      <input id="inputTag" onChange={(e) => { setInputValue(e.target.value) }}></input>
+      <button onClick={() => { createContent(inputvalue); }}>글 생성</button>
       {
         modal == true ? <ModalUI title_rename={제목1변경} title={제목1[putindex]} color={'skyblue'} modal_title={제목1} content="HI" /> : null
       }
 
     </div>
   );
-
 }
 
 function ModalUI(props) {
