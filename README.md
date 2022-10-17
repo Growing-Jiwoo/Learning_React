@@ -15,3 +15,6 @@ Dynamic UI 학습, map() 학습
 
 ## day6
 props() 학습
+
+## day7
+input tag를 활용한 글 생성, 삭제 예제 학습
