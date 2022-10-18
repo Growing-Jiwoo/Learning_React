@@ -1,6 +1,6 @@
 /* eslint-disable*/
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
@@ -78,21 +78,6 @@ function App() {
       <br></br>
       <button style={{ marginBottom: "20px" }} onClick={arraySort} >가나다순 정렬</button>
 
-      {/* <div className='list'>
-        <h4>글 제목, {제목1[0]} <span onClick={likeBtn}>/ 좋아요 👍</span> {like} </h4>
-        <p>2월 17일 발행</p>
-      </div>
-
-      <div className='list'>
-        <h4>글 제목, {제목1[1]} </h4>
-        <p>2월 17일 발행</p>
-      </div>
-
-      <div className='list'>
-        <h4>글 제목, {제목1[2]} </h4>
-        <p>2월 17일 발행</p>
-      </div> */}
-
       {
         제목1.map(function (value, index) {
           return (
@@ -112,6 +97,7 @@ function App() {
       {
         modal == true ? <ModalUI title_rename={제목1변경} title={제목1[putindex]} color={'skyblue'} modal_title={제목1} content="HI" /> : null
       }
+    <Modal2/>
 
     </div>
   );
@@ -126,6 +112,26 @@ function ModalUI(props) {
       <button onClick={() => props.title_rename(['수정된 맛있는 우동', '수정된 맛없는 우동', '수정된 나쁘지않은 우동'])}>글 수정 버튼</button>
     </div>
   )
+}
+
+class Modal2 extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      name: 'Kim',
+      age: 20
+    }
+  }
+  render(){
+    return( 
+      <div>안녕 {this.state.name}
+      <button onClick={() => {
+        this.setState({name: "Park"})
+      }}>수정</button>
+      </div>
+
+    )
+  }
 }
 
 export default App;
