@@ -19,5 +19,5 @@ props() 학습
 ## day7
 input tag를 활용한 글 생성, 삭제 예제 학습
 
-## day7
+## day8
 class를 이용한 옛날 React 문법 맛보기 학습
